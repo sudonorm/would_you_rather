@@ -1,0 +1,10 @@
+Jinja2
+SQLAlchemy
+xlrd
+openpyxl
+pydantic
+pandas
+numpy
+fastapi
+uvicorn
+python-multipart
