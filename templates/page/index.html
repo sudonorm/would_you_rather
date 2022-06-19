@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-4">
+    
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Would you rather?</h1>
+        <p class="col-md-8 fs-4">A game of questions you can play with your friends to get to know them a bit better.</p>
+      </div>
+    </div>
+
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+          <h2>Select a category to begin...</h2>
+          <div class="p-3"></div>
+          <!-- hx-post="/get_cat" hx-trigger="change" hx-target="#question" 
+          <label for="category">Select a category:</label> -->
+          <select id="category" name="category" style="margin-right:5px;">
+              {% for cat in categories%}
+              <option value="{{cat}}">{{cat}}</option>
+              {%endfor%}
+          </select>
+          <div class="p-3"></div>
+          <button class="btn btn-outline-light" id = "get_question" type="button">Get random question</button>
+          <div class="p-3"></div>
+          <span id="question"></span>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-light border rounded-3">
+          <h2 class="border-bottom">Selected questions</h2>
+          <div class="p-3"></div>
+          <table class="table table-striped" id="tableBody">
+         
+          </table>
+          <!-- <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>-->
+          <div class="p-3"></div>
+          <button class="btn btn-outline-secondary" type="button" id="reset">Reset</button>
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+
+{% endblock %}

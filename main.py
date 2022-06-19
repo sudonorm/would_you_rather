@@ -15,7 +15,7 @@ from pydantic import BaseModel
 import json
 import os 
 import pathlib
-
+import requests
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -26,13 +26,20 @@ templates = Jinja2Templates(directory="templates")
 def home(request: Request):
 
     date_today = datetime.date.today()
-    with open("general.json", "r") as f:
-        questions = json.load(f)
-    print(questions)
-    context = {"request": request, "year":date_today.year, "questionIDs": ["Select a question number..."] + list(questions.keys())}
+    raw_response = requests.get("https://raw.githubusercontent.com/sudonorm/would_you_rather/main/categories.json")
+    categories = json.loads(raw_response.text)
+    print(categories["all"])
+    
+    context = {"request": request, "year":date_today.year, "categories": ["Select a category..."] + categories["all"]}
     response = templates.TemplateResponse("page/index.html", context)
     return response
 
-# @app.post("/get_question/")
-# def get_question(request: Request, category: str = Form(...)):
-#     pass
+# @app.post("/get_cat/")
+# def get_cat(request: Request):
+#     raw_response = requests.get("https://raw.githubusercontent.com/sudonorm/would_you_rather/main/categories.json")
+#     categories = json.loads(raw_response.text)
+        
+#     context = {"request": request, "categories": categories["all"]}
+
+#     response = templates.TemplateResponse("pages/question.html", context)
+#     return response
