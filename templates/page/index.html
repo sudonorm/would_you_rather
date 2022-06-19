@@ -20,8 +20,6 @@
         <div class="h-100 p-5 text-white bg-dark rounded-3">
           <h2>Select a category to begin...</h2>
           <div class="p-3"></div>
-          <!-- hx-post="/get_cat" hx-trigger="change" hx-target="#question" 
-          <label for="category">Select a category:</label> -->
           <select id="category" name="category" style="margin-right:5px;">
               {% for cat in categories%}
               <option value="{{cat}}">{{cat}}</option>
@@ -40,14 +38,11 @@
           <table class="table table-striped" id="tableBody">
          
           </table>
-          <!-- <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>-->
           <div class="p-3"></div>
           <button class="btn btn-outline-secondary" type="button" id="reset">Reset</button>
         </div>
       </div>
     </div>
-
-    
   </div>
 
 {% endblock %}

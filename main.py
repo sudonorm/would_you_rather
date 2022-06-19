@@ -2,16 +2,13 @@ import random
 from datetime import timedelta
 import datetime
 
-from fastapi import Depends
-from fastapi import FastAPI, Form
+from fastapi import FastAPI
 from fastapi import Request, Response
 from fastapi.responses import HTMLResponse
-from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 
-from pydantic import BaseModel
 import json
 import os 
 import pathlib
@@ -33,13 +30,3 @@ def home(request: Request):
     context = {"request": request, "year":date_today.year, "categories": ["Select a category..."] + categories["all"]}
     response = templates.TemplateResponse("page/index.html", context)
     return response
-
-# @app.post("/get_cat/")
-# def get_cat(request: Request):
-#     raw_response = requests.get("https://raw.githubusercontent.com/sudonorm/would_you_rather/main/categories.json")
-#     categories = json.loads(raw_response.text)
-        
-#     context = {"request": request, "categories": categories["all"]}
-
-#     response = templates.TemplateResponse("pages/question.html", context)
-#     return response
