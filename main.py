@@ -25,7 +25,6 @@ def home(request: Request):
     date_today = datetime.date.today()
     raw_response = requests.get("https://raw.githubusercontent.com/sudonorm/would_you_rather/main/categories.json")
     categories = json.loads(raw_response.text)
-    print(categories["all"])
     
     context = {"request": request, "year":date_today.year, "categories": ["Select a category..."] + categories["all"]}
     response = templates.TemplateResponse("page/index.html", context)
