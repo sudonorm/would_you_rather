@@ -1,1 +1,1 @@
-{"all":["general", "dummy"], "general": "https://raw.githubusercontent.com/sudonorm/would_you_rather/main/general.json", "dummy":"https://raw.githubusercontent.com/sudonorm/would_you_rather/main/dmyquestions.json"}
+{"all":["general", "dummy"], "general": "https://raw.githubusercontent.com/sudonorm/would_you_rather/main/app/static/data/general.json", "dummy":"https://raw.githubusercontent.com/sudonorm/would_you_rather/main/app/static/data/dmyquestions.json"}
