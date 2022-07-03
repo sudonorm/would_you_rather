@@ -23,7 +23,7 @@ templates = Jinja2Templates(directory="templates")
 def home(request: Request):
 
     date_today = datetime.date.today()
-    raw_response = requests.get("https://raw.githubusercontent.com/sudonorm/would_you_rather/main/categories.json")
+    raw_response = requests.get("https://raw.githubusercontent.com/sudonorm/would_you_rather/main/app/static/data/categories.json")
     categories = json.loads(raw_response.text)
     
     context = {"request": request, "year":date_today.year, "categories": ["Select a category..."] + categories["all"]}

@@ -6,7 +6,7 @@ function get_random (list) {
 let questions = {};
 let dataSon = {};
 
-$.getJSON("https://raw.githubusercontent.com/sudonorm/would_you_rather/main/categories.json", function (data) {
+$.getJSON("https://raw.githubusercontent.com/sudonorm/would_you_rather/main/app/static/data/categories.json", function (data) {
     //console.log(typeof data)
     dataSon = data;
 });
