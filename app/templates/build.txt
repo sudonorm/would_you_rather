@@ -1,0 +1,6 @@
+heroku login
+heroku create your-app-name --manifest
+heroku stack:set container
+git add heroku.yml
+git commit -m "Add heroku.yml"
+git push heroku master
