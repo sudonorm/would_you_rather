@@ -1,3 +1,3 @@
 # would_you_rather
 
-- The Heroku app can be accessed here: https://but-would-you-rather.herokuapp.com/
+- The app can be accessed here: https://would-you-rather-4yir.onrender.com/
